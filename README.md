@@ -139,7 +139,7 @@ Get the smallest # of inputs needed to fund value
 ```
 getInputs(inputs, value) 
 ```
- -**`inputs`**: `Array` of inputs used for funding the transfer
+ - **`inputs`**: `Array` of inputs used for funding the transfer
  - **`value`**: `Int` total value needed to fund transfer.
 
 ##### Returns
