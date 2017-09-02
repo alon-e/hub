@@ -45,6 +45,7 @@ getAddress(seed, index, security, checksum)
 **`String`** - returns an address.
 
 ---
+
 #### `isSpent`
 Checks if an address has ever issued an outgoing transaction.
 ##### Inputs
@@ -54,6 +55,8 @@ isSpent(address)
  - **`address`**: `String` address to check for.
 ##### Returns
 **`Boolean`** - returns true if an outgoing transaction was ever issued from this address.
+
+---
 
 ## Process:
 #### `process`
@@ -72,6 +75,8 @@ process(seed, inputs, sweeps, addresses, destination, batchSize)
 ##### Returns
 **`Sweeps`** - the newly generated sweeps.
 
+---
+
 #### `sweep`
 TODO: description
 ##### Inputs
@@ -89,6 +94,8 @@ sweep(seed, inputs, sweeps, addresses, addressesToSweep, destination, batchSize)
 ##### Returns
 **`[sweeps]`** - the newly generated sweeps.
 
+---
+
 #### `updateBalances`
 updates the `addresses` to reflect the current balance
 ##### Inputs
@@ -99,6 +106,8 @@ updateBalances(addresses)
  
 ##### Returns
 **`[addresses]`** a copy of `addresses` with updated balances
+
+---
 
 ## Sync:
 #### `sync`
@@ -113,6 +122,8 @@ sync(inputs, transactions, addresses)
 
 ##### Returns
 **`[transactions]`** - newly confirmed transactions.
+
+---
 
 ## Transfer:
 #### `transfer`
@@ -132,6 +143,8 @@ transfer(seed, inputs, transfers, options)
 
 ##### Returns
 **`[Trytes]`** - List of signed trytes, ready to be sent.
+
+---
 
 #### `getInputs`
 Get the smallest # of inputs needed to fund value
