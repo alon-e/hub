@@ -147,7 +147,7 @@ transfer(seed, inputs, transfers, options)
 ---
 
 #### `getInputs`
-Get the smallest # of inputs needed to fund value
+Get the smallest amount of inputs needed to fund value
 ##### Inputs
 ```
 getInputs(inputs, value) 
