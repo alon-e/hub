@@ -7,12 +7,11 @@
   - **[isSpent()](#isspent)**
 
 - **[process()](#process)**
-  - **[updateBalances()?](#updatebalances)**
-
+  
 - **[sync()](#sync)**
-
+  - **[getBalances()](#updatebalances)**
 - **[transfer()](#transfer)**
-  - **[getInputs()?](#getinputs)**
+  
 
 ## Objects:
 
@@ -142,19 +141,6 @@ process(seed, inputs, sweeps, addresses, destination, batchSize)
 
 ---
 
-#### `updateBalances`
-updates the `addresses` to reflect the current balance
-##### Inputs
-```
-updateBalances(addresses)
-```
- - **`addresses`**: `Array` of address objects
- 
-##### Returns
-**`[addresses]`** a copy of `addresses` with updated balances
-
----
-
 ## Sync:
 #### `sync`
 TODO: description
@@ -168,6 +154,19 @@ sync(inputs, transactions, addresses)
 
 ##### Returns
 **`[transactions]`** - newly confirmed transactions.
+
+---
+
+#### `updateBalances`
+updates the `addresses` to reflect the current balance
+##### Inputs
+```
+updateBalances(addresses)
+```
+ - **`addresses`**: `Array` of address objects
+ 
+##### Returns
+**`[addresses]`** a copy of `addresses` with updated balances
 
 ---
 
@@ -189,17 +188,3 @@ transfer(seed, inputs, transfers, options)
 
 ##### Returns
 **`[Trytes]`** - List of signed trytes, ready to be sent.
-
----
-
-#### `getInputs`
-Get the smallest amount of inputs needed to fund value
-##### Inputs
-```
-getInputs(inputs, value) 
-```
- - **`inputs`**: `Array` of inputs used for funding the transfer
- - **`value`**: `Int` total value needed to fund transfer.
-
-##### Returns
-**`[inputs]`** - a subset of `inputs`.
