@@ -19,16 +19,66 @@
 ```
 Addresses = [
 {
-    address: 'W9AZFNWZZZNTAQIOOGYZHKYJHSVMALVTWJSSZDDRVEIXXWPNWEALONZLPQPTCDZRZLHNIHSUKZRSZAZ9W',
-    balance: 8500,
-    keyIndex: 7,
-    security: 2
+    'address': 'W9AZFNWZZZNTAQIOOGYZHKYJHSVMALVTWJSSZDDRVEIXXWPNWEALONZLPQPTCDZRZLHNIHSUKZRSZAZ9W',
+    'balance': 8500,
+    'keyIndex': 7,
+    'security': 2
  }, {
   ...
  }
 ]
 ```
-TODO - inputs, sweeps, transactions, transfers
+
+```
+Inputs = [
+{
+    'address': 'EQ9SMKTWMAEZGXDVVOZWMEB9IUBTXXIBUEZVTJZTNWEAPCTCFRPCVMQIFBVVJC9EAAHAEZBKIKLNNMAKD',
+    'balance': 700,
+    'keyIndex': 1,
+    'security': 2
+ }, {
+  ...
+ }
+]
+```
+
+```
+Transfers = [
+{
+    'address': 'W9AZFNWZZZNTAQIOOGYZHKYJHSVMALVTWJSSZDDRVEIXXWPNWEALONZLPQPTCDZRZLHNIHSUKZRSZAZ9W',
+    'value': 1500
+ }, {
+  ...
+ }
+]
+```
+
+```
+Sweeps = [
+{
+    'inputs': [inputs], //sweepable addresses
+    'value': 700, //total value in inputs
+    'transfers': [transfers], //to destination
+ }, {
+  ...
+ }
+]
+```
+
+```
+Transactions = [
+{
+    'hashes': ["9QPCYXBTYODD9UXWPLHWK9ELIUUIWGC9DEZAZKFWIOIBXB9UXPYYPTEITHEZBVEXWDPZALQLHRSK99999","WZZZAFECOUI9JZASTZSQBSUFHZLYWLXAHJLXHIPJKSVYJWHSUOZXQCDFLMEMGAHP9KPTJIY9UPFU99999","GGQGNWQNA9BPUFBWOACXVYEQUSRVNPOJWDXLQEEOJXCCALIL9CRKUUPOGXTBVUDVI9ULTCCEVXHL99999"], 
+    'confirmed': true,
+    'transfers': [transfers],
+    'inputs': [inputs]
+ }, {
+  ...
+ }
+]
+```
+
+---
 
 ## Addresses:
 #### `getNewAddress`
