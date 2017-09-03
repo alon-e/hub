@@ -1,4 +1,19 @@
 # Hub
+- **[Objects](#objects)**
+
+- **[Addresses](#addresses)**
+  - **[getNewAddress](#getnewaddress)**
+  - **[getAddress](#getaddress)**
+  - **[isSpent](#isspent)**
+
+- **[process](#process)**
+  - **[updateBalances?](#updatebalances)**
+
+- **[sync](#sync)**
+
+- **[transfer](#transfer)**
+  - **[getInputs?](#getinputs)**
+
 ## Objects:
 
 ```
@@ -74,25 +89,6 @@ process(seed, inputs, sweeps, addresses, destination, batchSize)
 
 ##### Returns
 **`Sweeps`** - the newly generated sweeps.
-
----
-
-#### `sweep`
-TODO: description
-##### Inputs
-```
-sweep(seed, inputs, sweeps, addresses, addressesToSweep, destination, batchSize) 
-```
- - **`seed`**: `String` tryte-encoded seed. *seed is never transferred to node
- - **`inputs`**: `Array` of input objects, to which received funds will be swept to.
- - **`sweeps`**: `Array` of sweep objects, containing current pending sweeps.
- - **`addresses`**: `Array` of address objects, addresses with balance will be swept.
- - **`addressesToSweep`**: `Array` of address objects, a subset of `addresses`, to be swept.
-  - **`destination`**: `String` address to which received funds are swept to, needs to be in `inputs`, _if not provided, the input with the lowest value is selected_.
- - **`batchSize`**: `Int` amount of deposits to sweeps together, _default `constants.MAX_TXS_PER_BUNDLE`_.
-
-##### Returns
-**`[sweeps]`** - the newly generated sweeps.
 
 ---
 
