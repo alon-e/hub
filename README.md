@@ -11,7 +11,9 @@
 - **[sync()](#sync)**
   - **[getBalances()](#updatebalances)**
 - **[transfer()](#transfer)**
-  
+  - **[sendTrytes()](#sendtrytes)**
+  - **[replay()](#replay)**
+
 
 ## Objects:
 
@@ -124,7 +126,7 @@ isSpent(address)
 
 ## Process:
 #### `process`
-TODO: description
+Sweep recent deposits in receiving addresses, to `destination` address.
 ##### Inputs
 ```
 process(seed, inputs, sweeps, addresses, destination, batchSize)
@@ -137,13 +139,13 @@ process(seed, inputs, sweeps, addresses, destination, batchSize)
  - **`batchSize`**: `Int` amount of deposits to sweeps together, _default `constants.MAX_TXS_PER_BUNDLE`_.
 
 ##### Returns
-**`Sweeps`** - the newly generated sweeps.
+**`Sweeps`** - the newly generated sweeps, which need to be sent using `sendTrytes`.
 
 ---
 
 ## Sync:
 #### `sync`
-TODO: description
+Periodic synchronization with the tangle allows the hub to update state (address balances, transaction confirmation status).
 ##### Inputs
 ```
 sync(inputs, transactions, addresses) 
@@ -172,7 +174,8 @@ updateBalances(addresses)
 
 ## Transfer:
 #### `transfer`
-TODO: description
+prepares transfers, while managing the available inputs.
+Hub composes outgoing transfers while ensuring that inputs have no pending balance from previous incoming transactions and selects the smallest set of inputs needed for the task.
 ##### Inputs
 ```
 transfer(seed, inputs, transfers, options)
@@ -182,9 +185,44 @@ transfer(seed, inputs, transfers, options)
  - **`transfers`**: `Array` of transfer objects, specifying the destinations.
  - **`options`**: _optional_
 
-   -**`inputs`**: `Array` of inputs used for funding the transfer
-   -**`validateDestination`**: `Boolean` check if destination addresses ever spent funds.
-   -**`remainderAddress`**: if defined, this address will be used for sending the remainder   value (of the inputs) to.
+   - **`inputs`**: `Array` of inputs used for funding the transfer
+   - **`validateDestination`**: `Boolean` check if destination addresses ever spent funds.
+   - **`remainderAddress`**: if defined, this address will be used for sending the remainder   value (of the inputs) to.
 
 ##### Returns
-**`[Trytes]`** - List of signed trytes, ready to be sent.
+**`[Trytes]`** - List of signed trytes, ready to be sent, using `sendTrytes`.
+
+---
+
+#### `sendTrytes`
+Send prepared transaction to the network (also does PoW)
+##### Inputs
+```
+sendTrytes (depth, minWeightMagnitude, transactions, inputs, addresses)
+```
+ - **`depth`**: `Int` depth
+ - **`minWeightMagnitude`**: `Int` min weight magnitude
+ - **`transactions`**: `Array` of transaction objects
+ - **`inputs`**: `Array` of inputs objects
+ - **`addresses`**: `Array` of address objects
+
+##### Returns
+**`Array`**  - returns an array of the transfer (transaction objects).
+
+
+---
+
+#### `replay`
+Replays a list of transactions.
+##### Inputs
+```
+replay (transactions, replayList, depth, minWeightMagnitude)
+```
+ - **`transactions`**: `Array` of transaction objects
+ - **`replayList`**: `Array` of transaction to be replayed
+ - **`depth`**: `Int` depth
+ - **`minWeightMagnitude`**: `Int` min weight magnitude
+
+
+##### Returns
+**`[???]`** - TODO
