@@ -2,17 +2,17 @@
 - **[Objects](#objects)**
 
 - **[Addresses](#addresses)**
-  - **[getNewAddress](#getnewaddress)**
-  - **[getAddress](#getaddress)**
-  - **[isSpent](#isspent)**
+  - **[getNewAddress()](#getnewaddress)**
+  - **[getAddress()](#getaddress)**
+  - **[isSpent()](#isspent)**
 
-- **[process](#process)**
-  - **[updateBalances?](#updatebalances)**
+- **[process()](#process)**
+  - **[updateBalances()?](#updatebalances)**
 
-- **[sync](#sync)**
+- **[sync()](#sync)**
 
-- **[transfer](#transfer)**
-  - **[getInputs?](#getinputs)**
+- **[transfer()](#transfer)**
+  - **[getInputs()?](#getinputs)**
 
 ## Objects:
 
